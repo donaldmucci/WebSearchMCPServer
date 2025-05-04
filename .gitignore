@@ -1,0 +1,6 @@
+*.pubxml
+/Properties/ServiceDependencies
+/obj
+/obj
+/.vs
+/bin

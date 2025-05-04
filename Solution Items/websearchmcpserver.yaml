@@ -1,0 +1,49 @@
+swagger: '2.0'
+info:
+  title: WebSearch MCP Server
+  description: MCP Server able to make internet searches.
+  version: '1.0'
+host: localhost:3001
+basePath: /
+schemes:
+  - https
+definitions:
+  QueryResponse:
+    type: object
+    properties:
+      jsonrpc:
+        type: string
+      id:
+        type: string
+      method:
+        type: string
+      params:
+        type: object
+      result:
+        type: object
+      error:
+        type: object
+paths:
+  /sse:
+    get:
+      summary: WebSearch MCP Server
+      parameters:
+        - in: query
+          name: sessionId
+          type: string
+          required: false
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Immediate Response
+          schema:
+            $ref: '#/definitions/QueryResponse'
+        '201':
+          description: Created and will follow callback
+      operationId: WebSearchMCP
+      tags:
+        - Agentic
+        - McpSse
+securityDefinitions: {}
+security: []
